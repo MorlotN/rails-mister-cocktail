@@ -1,0 +1,17 @@
+<h1>New Cocktail</h1>
+
+<% @ingredients.each do |ingredient| %>
+<p> <%= ingredient.name %> </p>
+<% end %>
+
+<%= simple_form_for @cocktail do |f| %>
+<%= f.input :name%>
+<%= f.association :description %>
+<%= f.submit "add a description", class: "btn btn-primary" %>
+
+<% end %>
+
+
+<%= render 'form', cocktail: @cocktail %>
+
+<%= link_to 'Back', cocktails_path %>
